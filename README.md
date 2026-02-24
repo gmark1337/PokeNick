@@ -31,37 +31,39 @@ A laravel-based backend service that assigns Pokemon nicknames to users either a
 1. Clone the repository.
 
 ```
-    git clone https://github.com/gmark1337/PokeNick
+git clone https://github.com/gmark1337/PokeNick
 ```
 
 2. Enter the folder.
 
 ```
-    cd PokeNick
+cd PokeNick
 ```
 
 3. Install dependencies
 
 ```
-    composer install
+composer install
 ```
 
 4. Create enviroment file (Windows)
 
 ```
-    copy .env.example .env 
+copy .env.example .env 
 ```
 
 5. Generate application key
 ```
-    php artisan key:generate
+php artisan key:generate
 ```
 
 6. Create database(SQlite)(Windows)
 
 ```
-    type nul > database\database.sqlite 
-    php artisan migrate
+type nul > database\database.sqlite
+```
+``` 
+php artisan migrate
 ```
 
 
@@ -72,13 +74,13 @@ Install npm packages for UI to work.
 1. Install npm packages
 
 ```
-    npm install
+npm install
 ```
 
 2. Run build
 
 ```
-    npm run build
+npm run build
 ```
 
 # How to use
@@ -88,13 +90,13 @@ You must do the steps above to use this function!
 
 1. Populate the database with seed data 
 ```
-    php artisan db:seed
+php artisan db:seed
 ```
 
 2. Run the automation
 
 ```
-    php artisan schedule:work
+php artisan schedule:work
 ```
 
 It should run every minute adding each user 1 nickname from [this](https://pokeapi.co).
@@ -102,7 +104,7 @@ It should run every minute adding each user 1 nickname from [this](https://pokea
 ## To run the server 
 
 ```
-    php artisan serve
+php artisan serve
 ```
 
 # API endpoints
