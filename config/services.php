@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'pokeapi' =>[
+        'enabled' => env('POKEAPI_ENABLED', true),
+    ],
+
 ];
