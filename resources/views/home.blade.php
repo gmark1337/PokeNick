@@ -9,9 +9,8 @@
             <div class="card-body">
                 <div>
                     <div class="font-semibold">{{ $nickname->user ? $nickname->user->name : 'Anonymous' }}</div>
-                    <div class="mt-1">{{ $nickname -> nickname }}</div> 
+                    <div class="mt-1">{{ $nickname -> name }}</div> 
                     <div class ="text-sm text-gray-500 mt-2">{{ $nickname->created_at->diffForHumans() }}</div>
-                    </div>
                 </div>
             </div>
         </div>
