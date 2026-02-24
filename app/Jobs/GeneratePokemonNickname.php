@@ -27,7 +27,7 @@ class GeneratePokemonNickname
 
             Nickname::create([
                 'user_id' => $user->id,
-                'name' => $nickname,
+                'name' => ucfirst($nickname),
             ]);
         }
     }

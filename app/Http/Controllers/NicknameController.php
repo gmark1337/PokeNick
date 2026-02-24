@@ -42,7 +42,7 @@ class NicknameController extends Controller
 
 
         $nickname = $user->nicknames()->create([
-            'name' => $validated['name'],
+            'name' => ucfirst($validated['name']),
         ]);
 
         return response()->json([
