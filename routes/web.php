@@ -1,7 +1,6 @@
 <?php
 
+use App\Http\Controllers\NicknameController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [NicknameController::class, 'index']);

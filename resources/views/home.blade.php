@@ -3,14 +3,20 @@
         PokeNick
     </x-slot:title>
     <div class="max-w-2xl mx-auto">
-            <div class="card bg-base-100 shadow mt-8">
-                <div class="card-body">
-                    <div>
-                        <h1 class="text-3xl font-bold">Welcome to PokeNick!</h1>
-                        <p class="mt-4 text-base-content/60">Simple website for managing your pokemons, 
-                            train them  add various nicknames or let the system do it for you!</p>
+        @forelse ($nicknames as $nickname)
+            
+        <div class="card bg-base-100 shadow mt-8">
+            <div class="card-body">
+                <div>
+                    <div class="font-semibold">{{ $nickname->user ? $nickname->user->name : 'Anonymous' }}</div>
+                    <div class="mt-1">{{ $nickname -> nickname }}</div> 
+                    <div class ="text-sm text-gray-500 mt-2">{{ $nickname->created_at->diffForHumans() }}</div>
                     </div>
                 </div>
             </div>
         </div>
+        @empty
+            <p class="text-gray-500">No pokemons yet. Be the first one to add pokemon! </p>
+        @endforelse
+    </div>
 </x-layout>
