@@ -48,6 +48,6 @@ class User extends Authenticatable
     }
 
     public function nicknames() : HasMany{
-        return $this->hasMAny(Nickname::class);
+        return $this->hasMany(Nickname::class);
     }
 }

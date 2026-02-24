@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Nickname extends Model
 {
     protected $fillable = [
+        'user_id',
         'name'
     ];
 
