@@ -1,6 +1,12 @@
-use App\Http\Controllers\UserController;
+<?php
+
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NicknameController;
+use App\Http\Controllers\UserController;
 
-Route::get('/api/users', [UserController::class, 'getUsers']);
+Route::get('/users', [UserController::class, 'getUsers']);
 
-Route::get('/api/users-with-nicknames', [UserController::class, 'getUsersWithNicknames']);
+Route::get('/users-with-nicknames', [UserController::class, 'getUsersWithNicknames']);
+
+Route::post('/users/{user}/nicknames', [NicknameController::class, 'store']);

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Nickname;
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class NicknameController extends Controller
 {
@@ -32,9 +34,22 @@ class NicknameController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, User $user) :JsonResponse
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255'
+        ]);
+
+
+        $nickname = $user->nicknames()->create([
+            'name' => $validated['name'],
+        ]);
+
+        return response()->json([
+            'message' => 'Nickname added successfully!',
+            'user_id' => $user->id,
+            'name' => $nickname -> name],
+             201);
     }
 
     /**
