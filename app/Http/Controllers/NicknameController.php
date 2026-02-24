@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Nickname;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class NicknameController extends Controller
@@ -12,12 +13,12 @@ class NicknameController extends Controller
      */
     public function index()
     {
-        $nicknames = Nickname::with('user')
+        $users = User::with('nicknames')
         ->latest()
         ->take(50)
         ->get();
 
-        return view('home', ['nicknames' => $nicknames]);
+        return view('home', ['users' => $users]);
     }
 
     /**

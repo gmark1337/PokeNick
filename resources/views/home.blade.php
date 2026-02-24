@@ -3,14 +3,18 @@
         PokeNick
     </x-slot:title>
     <div class="max-w-2xl mx-auto">
-        @forelse ($nicknames as $nickname)
+        @forelse ($users as $user)
             
         <div class="card bg-base-100 shadow mt-8">
             <div class="card-body">
                 <div>
-                    <div class="font-semibold">{{ $nickname->user ? $nickname->user->name : 'Anonymous' }}</div>
-                    <div class="mt-1">{{ $nickname -> name }}</div> 
-                    <div class ="text-sm text-gray-500 mt-2">{{ $nickname->created_at->diffForHumans() }}</div>
+                    <div class="font-semibold">{{ $user->name ?? 'Anonymous' }}</div>
+                    <ul>
+                    @foreach ($user->nicknames as $nickname)
+                        <li>{{ $nickname -> name }}</li>
+                    @endforeach
+                    </ul>
+                    <div class ="text-sm text-gray-500 mt-2">{{ $user->created_at->diffForHumans() }}</div>
                 </div>
             </div>
         </div>
