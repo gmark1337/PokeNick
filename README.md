@@ -2,6 +2,7 @@
 
 * [Preview](#preview)
 * [Stack](#stack)
+* [Requirements](#requirements)
 * [Installation](#installation)
 * [How to use](#how-to-use)
 * [API endpoints](#api-endpoints)
@@ -17,37 +18,67 @@ A laravel-based backend service that assigns Pokemon nicknames to users either a
 - Database: SQLite
 - Integration: PokeAPI (external)
 
+# Requirements
+
+- PHP
+- Composer
+- SQLite (default)
+- Node.js & npm (optional, required for UI)
+
+
 # Installation
 
 1. Clone the repository.
 
 ```
-git clone https://github.com/gmark1337/PokeNick
+    git clone https://github.com/gmark1337/PokeNick
 ```
 
 2. Enter the folder.
 
 ```
-cd PokeNick
+    cd PokeNick
 ```
 
 3. Install dependencies
 
 ```
-composer install
-php artisan key:generate
+    composer install
 ```
 
-4. Configure Database
+4. Create enviroment file (Windows)
 
 ```
-php artisan migrate
+    copy .env.example .env 
 ```
 
-5. Initialize API routes
+5. Generate application key
+```
+    php artisan key:generate
+```
+
+6. Create database(SQlite)(Windows)
 
 ```
-php artisan install:api
+    type nul > database\database.sqlite 
+    php artisan migrate
+```
+
+
+
+## Optional 
+Install npm packages for UI to work.
+
+1. Install npm packages
+
+```
+    npm install
+```
+
+2. Run build
+
+```
+    npm run build
 ```
 
 # How to use
@@ -55,24 +86,24 @@ php artisan install:api
 **Note!**
 You must do the steps above to use this function!
 
-1. Populate the database with predefined data 
+1. Populate the database with seed data 
 ```
-php artistan db:seed
+    php artisan db:seed
 ```
 
-2. Add the following toggle to your **.env** file
-```
-POKEAPI_ENABLED=true
-```
-> The default value is false, so without this it won't work!
-
-3. Run the automation
+2. Run the automation
 
 ```
-php artisan schedule:work
+    php artisan schedule:work
 ```
 
 It should run every minute adding each user 1 nickname from [this](https://pokeapi.co).
+
+## To run the server 
+
+```
+    php artisan serve
+```
 
 # API endpoints
 
